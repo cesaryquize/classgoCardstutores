@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ClassGo Estilo Nuevo</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400,600,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="EInicio.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="ClassGoApp.html">
+        <img src="../Tugo/logoclassgo.png" alt="Logo ClassGo">
+      </a>
+        <img src="../Tugo/Tugo perfil.png" alt="Mascota ClassGo">
+    </div>
+    <nav>
+      <a href="#">Tutores</a>
+      <a href="Nosotros.html">Nosotros</a>
+      <a href="#">Cómo trabajamos</a>
+      <a href="#">Preguntas</a>
+    </nav>
+    <div class="actions">
+      <span class="lang">Español</span>
+      <button>Ingresar</button>
+      <button>👤</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        Aprende y Progresa con <span id="maquina-escribir"></span>
+      </h1>
+      <p>
+        Alcanza tus metas con tutorías personalizadas de los mejores expertos. Conéctate con tutores dedicados para asegurar tu éxito.
+      </p>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar Tutor o Materias" id="buscador" />
+      </div>
+      <div class="buttongroup">
+        <button>🔎 Tutores</button>
+        <button>📝 Regístrate</button>
+        <button>🚪 Ingresa</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="../Tugo/tugo movimiento.gif" alt="Mascota ClassGo" />
+    </div>
+  </section>
+
+  <section class="contador-section">
+    <div class="contador-item">
+      <h2 id="contador-usuario">+0 |</h2>
+      <p>Usuarios registrados</p>
+    </div>
+    <div class="contador-item">
+      <h2 id="contador-tutores"> +0</h2>
+      <p>Tutores disponibles</p>
+    </div>
+    <div class="contador-item">
+      <h2 id="contador-estudiantes">+0 |</h2>
+      <p>Estudiantes registrados</p>
+    </div>
+    <div class="contador-item">
+      <h2 id="contador-playstore">★0</h2>
+      <p>En Play Store</p>
+    </div>
+  </section>
+
+  <section class="tutores-destacados">
+    <span class="subtitulo-seccion">Tutores Destacados</span>
+    <h2>Encuentra tu Tutor Ideal</h2>
+    <p class="descripcion-seccion">
+        Descubre una variedad de temáticas académicas y prácticas para potenciar tu experiencia de aprendizaje.
+    </p>
+
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev">‹</button>
+
+        <div class="carousel-viewport">
+            <div class="carousel-track">
+                
+                <div class="tutor-card">
+                    <img src="../Tutores/licen.png" alt="Foto de Gabriel Alpiry" class="tutor-foto">
+                    <div class="tutor-card-content">
+                        <div class="tutor-info">
+                            <h3 class="tutor-nombre">
+                                Gabriel Alpiry 
+                                <span class="icon-verificado">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#1DA1F2"/><path d="M7.5 12L10.5 15L16.5 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                            </h3>
+                            <span class="tutor-cargo">Tutor Verificado</span>
+                            <div class="tutor-materias">
+                                <span>Estudios sociales</span>
+                                <span>Geografía</span>
+                                <span>Matemáticas Financieras</span>
+                                <span>Análisis de Estados Financieros</span>
+                                <span>Finanzas Corporativas</span>
+                                <span>Contabilidad Básica</span>
+                                <span>Contabilidad Intermedia</span>
+                                <span class="more-materias">+14 Más</span> 
+                            </div>
+                        </div>
+                        <div class="tutor-bottom">
+                            <div class="tutor-stats">
+                                <div class="stat-item">
+                                    <span class="stat-icon">📖</span> 18 Materias
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">⭐</span> 4.8
+                                </div>
+                                <div class="stat-item">
+                                    15Bs/20min
+                                </div>
+                            </div>
+                            <div class="tutor-actions">
+                                <button class="btn-perfil btn-blue">Ver Perfil</button> 
+                                <button class="btn-perfil btn-outline">Ver Materias</button>
+                                <button class="btn-bookmark">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutor-card">
+                    <img src="../Tutores/Edward.png" alt="Foto de Edward Rojas" class="tutor-foto">
+                    <div class="tutor-card-content">
+                        <div class="tutor-info">
+                            <h3 class="tutor-nombre">
+                                Edward Rojas 
+                                <span class="icon-verificado">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#1DA1F2"/><path d="M7.5 12L10.5 15L16.5 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                            </h3>
+                            <span class="tutor-cargo">Tutor Verificado</span>
+                            <div class="tutor-materias">
+                                <span>Análisis Financiero</span>
+                                <span>Econometría</span>
+                                <span>Cálculo</span>
+                                <span class="more-materias">+10 Más</span> 
+                            </div>
+                        </div>
+                        <div class="tutor-bottom">
+                            <div class="tutor-stats">
+                                <div class="stat-item">
+                                    <span class="stat-icon">📖</span> 12 Materias
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">⭐</span> 4.5
+                                </div>
+                                <div class="stat-item">
+                                    20Bs/30min
+                                </div>
+                            </div>
+                            <div class="tutor-actions">
+                                <button class="btn-perfil btn-blue">Ver Perfil</button> 
+                                <button class="btn-perfil btn-outline">Ver Materias</button>
+                                <button class="btn-bookmark">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="tutor-card">
+                    <img src="../Tutores/humberto.png" alt="Foto de Humberto Pinto" class="tutor-foto">
+                    <div class="tutor-card-content">
+                        <div class="tutor-info">
+                            <h3 class="tutor-nombre">
+                                Humberto Pinto
+                                <span class="icon-verificado">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#1DA1F2"/><path d="M7.5 12L10.5 15L16.5 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                            </h3>
+                            <span class="tutor-cargo">Tutor Verificado</span>
+                            <div class="tutor-materias">
+                                <span>Lenguaje</span>
+                                <span>Lectura</span>
+                                <span>Escritura</span>
+                                <span class="more-materias">+5 Más</span> 
+                            </div>
+                        </div>
+                        <div class="tutor-bottom">
+                            <div class="tutor-stats">
+                                <div class="stat-item">
+                                    <span class="stat-icon">📖</span> 8 Materias
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">⭐</span> 4.9
+                                </div>
+                                <div class="stat-item">
+                                    10Bs/30min
+                                </div>
+                            </div>
+                            <div class="tutor-actions">
+                                <button class="btn-perfil btn-blue">Ver Perfil</button> 
+                                <button class="btn-perfil btn-outline">Ver Materias</button>
+                                <button class="btn-bookmark">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <button class="carousel-btn next">›</button>
+    </div>
+</section>
+  
+  <section class="pasos-guia">
+  <span class="subtitulo-seccion">Una guía paso a paso</span>
+  <h2 class="titulo-seccion">Desbloquea Tu Potencial Con Pasos Sencillos</h2>
+  <p class="descripcion-seccion">
+    Mejora tus habilidades con los mejores tutores, fácil y rápido.
+  </p>
+
+  <div class="pasos-grid">
+    <div class="paso-card">
+      <span class="paso-etiqueta">Paso 1</span>
+      <img src="../Tugo/Tugo con celular.png" alt="Estudiante registrándose" class="paso-imagen">
+      <h3>Regístrate</h3>
+      <p>Crea tu cuenta rápidamente para comenzar a utilizar nuestra plataforma.</p>
+      <button class="btn-naranja">Comenzar</button>
+    </div>
+
+    <div class="paso-card">
+      <span class="paso-etiqueta">Paso 2</span>
+      <img src="../Tugo/TuGo con laptop.png" alt="Grupo de estudiantes" class="paso-imagen">
+      <h3>Encuentra un tutor</h3>
+      <p>Busca y selecciona entre tutores calificados según tus necesidades.</p>
+      <button class="btn-naranja">Buscar Ahora</button>
+    </div>
+
+    <div class="paso-card">
+      <span class="paso-etiqueta">Paso 3</span>
+      <img src="../Tugo/Tugo con lentes .png" alt="Estudiante reservando" class="paso-imagen">
+      <h3>Reserva ahora</h3>
+      <p>Encuentra el mejor momento y agenda tu sesión facilmente en nuestra plataforma.</p>
+      <button class="btn-naranja">Empecemos</button>
+    </div>
+
+    <div class="paso-card cta">
+      <img src="../Tugo/TuGo Deportista.png" alt="Ícono de inicio" class="paso-icono">
+      <h3>Comienza tu jornada</h3>
+      <p>¡Reserva tu primera sesión hoy mismo y avanza hacia tus metas!</p>
+      <button class="btn-blanco">Empieza ahora</button>
+    </div>
+  </div>
+</section>
+
+  <section class="cta-tutores">
+    <div class="cta-content">
+      <span class="subtitulo-seccion">¿Buscas tutorías personalizadas?</span>
+      <h2 class="titulo-seccion">En Classgo, te conectamos con los mejores tutores</h2>
+      <p class="descripcion-seccion">
+        Accede a sesiones cortas y prácticas, diseñadas por tutores expertos para ser pequeños salvavidas en el aprendizaje.
+      </p>
+      <button class="btn-cta">Comienza Ahora</button>
+    </div>
+    
+    <div class="cta-image-wrapper">
+      <img src="../Tugo/Tugo con celular.png" alt="Tutor Classgo con App" class="cta-image-main active">
+      <img src="../Tugo/TuGo con laptop.png" alt="Otra imagen de tutor" class="cta-image-main">
+      <img src="../Tugo/Tugo con lentes .png" alt="Otra imagen más" class="cta-image-main">
+      </div>
+  </section>
+  <section class="app-cta">
+  <div class="app-cta-content">
+    <span class="subtitulo-seccion">Fácil, simple y rápido</span>
+    <h2 class="titulo-seccion">Instala nuestra App</h2>
+    <p class="descripcion-seccion">
+      Comienza tu viaje educativo con nosotros. ¡Instálate hoy mismo nuestra app!
+    </p>
+    
+    <ul class="app-features">
+      <li>Acceso 24/7</li>
+      <li>Tutores expertos</li>
+      <li>Tarifas asequibles</li>
+    </ul>
+
+    <button class="btn-naranja">Descargar Ahora</button>
+  </div>
+  
+  <div class="app-cta-image">
+    <img src="../Tugo/tugo-cel.gif" alt="Mascota ClassGo sosteniendo la app">
+  </div>
+</section>
+
+<section class="eventos-section">
+  <span class="subtitulo-seccion">Eventos</span>
+  <h2 class="titulo-seccion">Nuestros Próximos Eventos y Bootcamps</h2>
+  <p class="descripcion-seccion">
+    Participa en nuestras clases en vivo, bootcamps y talleres. ¡Inscripciones disponibles!
+  </p>
+
+  <div class="eventos-grid">
+    <div class="evento-card">
+      <img src="../Tugo/Tugo escuchando música.png" alt="Bootcamp React" class="evento-imagen">
+      <div class="evento-info">
+        <h3>Bootcamp premium de React</h3>
+        <span class="evento-fecha">Clases a partir del 21 Noviembre</span>
+        <button class="btn-blanco">Ir al Bootcamp</button>
+      </div>
+    </div>
+
+    <div class="evento-card">
+      <img src="../Tugo/Tugo Universitario.png" alt="Bootcamp SQL" class="evento-imagen">
+      <div class="evento-info">
+        <h3>Bootcamp premium de SQL</h3>
+        <span class="evento-fecha">Clases a partir del 06 Noviembre</span>
+        <button class="btn-blanco">Ir al Bootcamp</button>
+      </div>
+    </div>
+
+    <div class="evento-card">
+      <img src="../Tugo/Tugo Ing y Sistemas.png" alt="Curso IA para Datos" class="evento-imagen">
+      <div class="evento-info">
+        <h3>Curso de IA para Datos</h3>
+        <span class="evento-fecha">Clases a partir del 25 Octubre</span>
+        <button class="btn-blanco">Ir al Bootcamp</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alianzas-section">
+  <span class="subtitulo-seccion">Nuestras Alianzas</span>
+  <h2 class="titulo-seccion">Alianzas que potencian la educación</h2>
+  <p class="descripcion-seccion">
+    En ClassGo creemos en el poder de la colaboración para transformar el aprendizaje.
+  </p>
+  
+  <div class="carousel-viewport">
+    <div class="logo-carousel-track">
+      <img src="../Nuestras alianzas/Colegio de Auditores o Contadores Publicos de Santa Cruz.jpg" alt="Colegio de Auditores o Contadores Publicos de Santa Cruz">
+      <img src="../Nuestras alianzas/incos santa cruz.jpg" alt="Incos Santa Cruz">
+      <img src="../Nuestras alianzas/Itjm.jpeg" alt="Instituto Tecnológico Jesús María Fe y Alegría">
+      <img src="../Nuestras alianzas/emi.jpeg" alt="EMI Unidad Académica Santa Cruz">
+      <img src="../Nuestras alianzas/Accion creativa.jpeg" alt="Accion creativa">
+      <img src="../Nuestras alianzas/danis.jpeg" alt="danis restaurante">
+      <img src="../Nuestras alianzas/gabriel alpiry hurtado.png" alt="Gabriel Alpiry Hurtado / Impuestos - Contabilidad - Auditoría">
+      <img src="../Nuestras alianzas/tugochannel.jpeg" alt="Tugo academy channel">
+      <img src="../Nuestras alianzas/club abierto.jpeg" alt="Club Abierto Tacuara Debate & Oratoria">
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-column brand">
+      <img src="../Tugo/logoclassgo.png" alt="Logo ClassGo" class="footer-logo">
+      <p class="contact-info">
+        📧 classgobol@gmail.com
+      </p>
+      <p class="contact-info">
+        📱 77573997
+      </p>
+      <button class="btn-blanco" style="margin-top: 15px;">Buscar Tutor</button>
+    </div>
+
+    <div class="footer-column links">
+      <h4>Tutores</h4>
+      <ul>
+        <li><a href="#">Tutores en línea</a></li>
+      </ul>
+      <h4>Nosotros</h4>
+      <ul>
+        <li><a href="#">Misión</a></li>
+        <li><a href="#">Visión</a></li>
+        <li><a href="#">Desarrolladores</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column links">
+      <h4>Inicia hoy</h4>
+      <ul>
+        <li><a href="#">Regístrate</a></li>
+        <li><a href="#">Encontrar tutor</a></li>
+      </ul>
+      <h4>Leer Más</h4>
+      <ul>
+        <li><a href="#">Términos y Condiciones</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column app">
+      <h4>Opten la App</h4>
+      <p>¡Lleva tu educación a todas partes!</p>
+      <a href="#" class="google-play-btn">
+        <img src="../Tugo/googleplay.png" alt="Get it on Google Play">
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copyright">© 2025 classgobol. Todos los derechos reservados.</p>
+    <div class="social-icons">
+      <a href="#" title="TikTok">Ti</a>
+      <a href="#" title="Facebook">Fb</a>
+      <a href="#" title="Instagram">In</a>
+      <a href="#" title="WhatsApp">Wa</a>
+    </div>
+  </div>
+</footer>
+
+  <script src="Mlogica.js"></script>
+</body>
+</html>

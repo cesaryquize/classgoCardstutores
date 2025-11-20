@@ -1,0 +1,1401 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: linear-gradient(to bottom, #026e94 0%, #185875 100%);
+  color: #fff;
+}
+.navbar {
+  background: #36a8c6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-radius: 0 0 36px 36px;
+}
+.navbar .logo {
+  display: flex;         
+  align-items: center;   
+  gap: 10px;             
+}
+
+.navbar .logo img {
+  height: 60px;  
+  width: auto;   
+}
+.navbar nav {
+  display: flex;
+  gap: 30px;
+}
+.navbar nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: transform 0.2s ease-out;
+}
+.navbar nav a:hover {
+  transform: translateY(-4px); 
+}
+.navbar .actions {
+  display: flex;
+  gap: 15px;
+}
+.navbar .actions button, .navbar .lang {
+  background: #fff;
+  color: #179ec6;
+  border: none;
+  border-radius: 18px;
+  padding: 9px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 3px;
+  transition: background .2s, color .2s;
+}
+.navbar .actions button:hover {
+  background: #179ec6;
+  color: #fff;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 40px 40px 40px;
+}
+.hero-content {
+  max-width: 600px;
+  transform: translateY(-50px);
+}
+.hero-content h1 {
+  font-size: 2.7em;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.hero-content h1 span {
+  color: #fff;
+  background: #179ec6;
+  padding: 0 5px;
+  border-radius: 6px;
+  font-size: 1.1em;
+  white-space: nowrap;
+  display: inline-block; 
+  min-width: 320px;
+  text-align: left; 
+}
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 32px;
+  color: #e0eef8;
+}
+.search-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+.search-bar input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 34px;
+  border: none;
+  font-size: 1em;
+}
+.buttongroup {
+  display: flex;
+  gap: 18px;
+}
+.buttongroup button {
+  background: #fff;
+  color: #185875;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background .19s, color .2s;
+}
+.buttongroup button:hover {
+  background: #185875;
+  color: #fff;
+}
+.hero-img img {
+  max-width: 500px;
+  width: 100%
+}
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-img {
+    align-self: center;
+    margin-top: 38px;
+  }
+}
+
+/* =======================
+   RESPOSIVIDAD PARTE DE INICIO
+   ======================= */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 40px 20px;
+  }
+
+  .hero-content {
+    text-align: center;    
+    transform: translateY(0);
+    max-width: 95%;
+  }
+
+  .hero-img {
+    align-self: center;
+    margin-top: 38px;
+  }
+  .buttongroup {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-content h1 {
+    font-size: 2.2em;
+  }
+  .hero-content h1 span {
+    font-size: 1em;
+    min-width: 290px;
+  }
+}
+@media (max-width: 900px) {
+  
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .navbar nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .navbar .logo img[alt*="Mascota"] {
+    display: none; 
+  }
+
+  .navbar .lang {
+    display: none; 
+  }
+}
+
+
+/* =======================
+   ESTILOS TUTORES
+   ======================= */
+
+.tutores-destacados {
+  background: #f9f9f9;
+  padding: 80px 40px;
+  text-align: center;
+}
+.subtitulo-seccion {
+  color: #185875;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 8px;
+}
+.tutores-destacados h2 {
+  color: #222;
+  font-size: 2.5em;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+.descripcion-seccion {
+  color: #555;
+  font-size: 1.15em;
+  max-width: 650px;
+  margin: 0 auto 50px auto;
+}
+
+/* --- ESTILOS DEL CARRUSEL --- */
+.carousel-viewport {
+  /* SOLUCIÓN 1: Sincronización para eliminar el recorte */
+  max-width: 770px; /* Ancho de la tarjeta (650px) + margen (20px) = 670px */
+  margin: 0 auto;
+  overflow: hidden; 
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  /*Habilita deslizamiento táctil en escritorio y móvil */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =======================
+   ESTILOS DE LA TARJETA (TUTOR) - DISEÑO FINAL (Figma Desktop)
+   ======================= */
+
+.tutor-card {
+  background: #fff; 
+  color: #222;
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  overflow: hidden;
+  text-align: left;
+  display: flex; 
+  flex: 0 0 750px; 
+  margin-right: 20px; 
+  border: 1px solid #eee;
+  position: relative; /* Para el modo responsivo */
+}
+
+.tutor-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.tutor-foto {
+  flex: 0 0 300px; /* Ancho fijo de la foto */
+  width: 300px;
+  height: 100%;
+  min-height: 400px; /* Altura mínima */
+  object-fit: cover;
+}
+
+/* Contenedor principal de texto */
+.tutor-card-content {
+  background-color: #f8f9fa; /* Gris muy claro de fondo */
+  padding: 35px 40px; 
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+/* Título y Check */
+.tutor-info h3 {
+  font-size: 2.6em;
+  margin: 0; 
+  font-weight: 800;
+  color: #222; 
+  display: flex; 
+  align-items: center;
+  gap: 10px;
+  line-height: 1.2; 
+}
+
+.tutor-info .tutor-cargo {
+  font-size: 1.1em; 
+  font-weight: 600;
+  color: #a0a0a0; 
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 20px; 
+}
+
+.icon-verificado svg {
+  width: 28px; 
+  height: 28px;
+  flex-shrink: 0; 
+}
+
+/* Materias */
+.tutor-materias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px; 
+}
+
+.tutor-materias span {
+  background: #e0e0e0; 
+  color: #333;
+  padding: 6px 12px; 
+  border-radius: 6px; 
+  font-size: 0.85em;
+  font-weight: 700;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.tutor-materias .more-materias {
+  background: none; 
+  font-weight: 800;
+  color: #333;
+  padding-left: 0;
+}
+
+/* Contadores (Bottom Stats) con líneas */
+.tutor-bottom {
+  margin-top: auto; 
+}
+
+.tutor-stats {
+  display: flex;
+  gap: 0; /* El espacio lo maneja el padding del item */
+  align-items: center;
+  margin-bottom: 20px; /* Espacio entre stats y botones */
+  color: #222;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+}
+
+.stat-item:first-child { padding-left: 0; }
+
+/* Líneas azules separadoras */
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%; 
+    width: 3px; 
+    background-color: #1da1f2; 
+    border-radius: 2px;
+}
+
+.stat-icon { margin-right: 8px; font-size: 1.2em; }
+
+/* Botones */
+.tutor-actions {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.btn-perfil {
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 12px 0;
+  text-align: center;
+  transition: all 0.2s;
+  flex-grow: 1; 
+}
+
+/* Botón Azul */
+.btn-blue { 
+  background: #1890ff; 
+  color: #fff;
+  border: none;
+}
+.btn-blue:hover { background: #1070c9; }
+
+/* Botón Outline */
+.btn-outline {
+  background: #fff;
+  color: #000;
+  border: 2px solid #1890ff;
+}
+.btn-outline:hover { background: #f0f8ff; }
+
+/* Botón Naranja (Guardar) */
+.btn-bookmark {
+    background: #f39c12; 
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 55px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0; 
+}
+.btn-bookmark:hover { background: #e67e22; }
+
+
+/* =======================
+   RESPONSIVIDAD (MÓVIL - DISEÑO OVERLAY VERTICAL)
+   ======================= */
+@media (max-width: 900px) {
+  
+  .tutor-card {
+    /* Cambia a vertical */
+    flex-direction: column; 
+    flex: 0 0 100%; 
+    max-width: 100%; 
+    height: 550px; /* Altura fija */
+    margin: 0 auto 20px auto; 
+    margin-right: 0;
+    border: none; 
+    position: relative;
+    scroll-snap-align: center;
+  }
+  .carousel-viewport{
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  /*Habilita deslizamiento táctil en escritorio y móvil */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+  
+  .tutor-foto {
+    /* Imagen ocupa todo el fondo */
+    width: 100%;
+    height: 100%;
+    border-radius: 20px; 
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+  }
+
+  .tutor-card-content {
+    /* Contenido superpuesto (Overlay) */
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1;
+    
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0) 100%);
+    background-color: transparent; 
+    color: #fff;
+    
+    padding: 20px;
+    justify-content: flex-end;
+    border-radius: 0 0 20px 20px;
+  }
+
+  /* Ajustes de texto en móvil */
+  .tutor-info h3 { color: #fff; font-size: 2em; }
+  .tutor-info .tutor-cargo { color: #ddd; margin-bottom: 10px; }
+  
+  /* Ocultar materias en móvil para limpiar */
+  .tutor-materias { display: none; }
+
+  /* Ajuste de Stats en móvil (Grid) */
+  .tutor-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .stat-item {
+    flex-direction: column;
+    padding: 0;
+    font-size: 0.9em;
+  }
+  .stat-item::after { display: none; } /* Quita líneas azules */
+
+  /* Botones en móvil */
+  .btn-outline { display: none; } /* Oculta "Ver Materias" en móvil */
+  
+  .btn-blue {
+      background: #1890ff;
+      border-radius: 30px;
+      padding: 12px;
+  }
+}
+
+/* =======================
+   ESTILOS SECCIÓN PASO A PASO
+   ======================= */
+
+.pasos-guia {
+  background: #f9f9f9;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.titulo-seccion {
+  color: #222;
+  font-size: 2.5em;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.paso-card {
+  background: #fff; 
+  color: #222;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.paso-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.paso-etiqueta {
+  background: #179ec6;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.paso-imagen {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.paso-card h3 {
+  font-size: 1.5em;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  color: #222;
+}
+
+.paso-card p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* --- Botones --- */
+
+.btn-naranja {
+  background: #f39c12; 
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-naranja:hover {
+  background: #e67e22;
+}
+
+/* --- Tarjeta CTA (Columna 4) --- */
+
+.paso-card.cta {
+  background: #026e94;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.paso-icono {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.paso-card.cta h3 {
+  color: #fff;
+}
+
+.paso-card.cta p {
+  color: #e0eef8;
+}
+
+.btn-blanco {
+  background: #fff;
+  color: #185875;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background .19s, color .2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-blanco:hover {
+  background: #185875;
+  color: #fff;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 900px) {
+  .pasos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .paso-imagen {
+    height: 250px; 
+  }
+}
+
+/* =======================
+   ESTILOS CTA TUTORES (NUEVA CON ANIMACIÓN)
+   ======================= */
+
+.cta-tutores {
+  background: #fff; 
+  color: #222;   
+  padding: 60px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px; 
+  margin: 60px auto; 
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cta-content {
+  flex: 1; 
+  max-width: 50%;
+}
+
+.cta-content .subtitulo-seccion {
+  text-align: left;
+}
+
+.cta-content .titulo-seccion {
+  text-align: left;
+  font-size: 2.2em;
+}
+
+.cta-content .descripcion-seccion {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+
+.btn-cta {
+  background: #179ec6;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 35px;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cta:hover {
+  background: #185875;
+}
+
+.cta-image-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+}
+
+.cta-image-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cta-image-main.prev1 {
+  opacity: 1;
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(6deg) scale(0.95);
+}
+
+.cta-image-main.prev2 {
+  opacity: 1;
+  z-index: 1;
+  transform: translate(-50%, -50%) rotate(12deg) scale(0.9);
+}
+
+.cta-image-main.active {
+  opacity: 1;
+  z-index: 3;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+/* --- Responsividad CTA --- */
+@media (max-width: 900px) {
+  .cta-tutores {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+  .cta-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .cta-content .subtitulo-seccion,
+  .cta-content .titulo-seccion,
+  .cta-content .descripcion-seccion {
+    text-align: center;
+  }
+  .cta-image-wrapper {
+    max-width: 80%;
+    min-height: 300px; 
+    margin-top: 30px;
+  }
+}
+
+/* =======================
+   ESTILOS SECCIÓN APP CTA
+   ======================= */
+
+.app-cta {
+  background: #fff; 
+  color: #222; 
+  padding: 60px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px; 
+  margin: 60px auto; 
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.app-cta-content {
+  flex: 1; 
+  max-width: 50%;
+  text-align: center;
+}
+
+.app-cta-content .subtitulo-seccion {
+  text-align: center;
+}
+
+.app-cta-content .titulo-seccion {
+  text-align: center;
+  font-size: 2.2em;
+}
+
+.app-cta-content .descripcion-seccion {
+  /* MODIFICADO: Centrado */
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+
+/* Estilos para la lista de beneficios */
+.app-features {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  text-align: left;
+  /* MODIFICADO: Centrado */
+  display: inline-block;
+}
+
+.app-features li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+/* Estilo del ícono de check (check) */
+.app-features li::before {
+  content: '✓'; 
+  font-weight: bold;
+  color: #fff;
+  background: #179ec6; 
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* NUEVO: Margen para bajar el botón */
+.app-cta-content .btn-naranja {
+  margin-top: 15px;
+}
+
+.app-cta-image {
+  flex: 1;
+  max-width: 60%;
+  text-align: center;
+}
+
+.app-cta-image img {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 900px) {
+  .app-cta {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+  .app-cta-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .app-cta-content .subtitulo-seccion,
+  .app-cta-content .titulo-seccion,
+  .app-cta-content .descripcion-seccion {
+    text-align: center;
+  }
+
+  .app-features {
+    display: inline-block;
+    margin: 30px auto;
+    text-align: left;
+  }
+  
+  .app-cta-image {
+    max-width: 80%;
+    margin-top: 30px;
+  }
+}
+
+/* =======================
+   ESTILOS SECCIÓN ALIANZAS
+   ======================= */
+
+.alianzas-section {
+  background: #f9f9f9;
+  padding: 80px 0; 
+  text-align: center;
+  overflow: hidden; 
+}
+
+.alianzas-section .subtitulo-seccion {
+  /* MODIFICADO: Color de texto oscuro */
+  color: #185875;
+}
+
+.alianzas-section .titulo-seccion {
+  /* MODIFICADO: Color de texto oscuro */
+  color: #222;
+}
+
+.alianzas-section .descripcion-seccion {
+  /* MODIFICADO: Color de texto oscuro */
+  color: #555;
+  /* opacity: 0.8; */ /* Quitado */
+  margin-bottom: 60px; 
+}
+
+.alianzas-section .carousel-viewport {
+  max-width: 100%; 
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.logo-carousel-track {
+  display: flex;
+  align-items: center; 
+}
+
+/* Pausa la animación al pasar el cursor */
+.logo-carousel-track:hover {
+  animation-play-state: paused !important;
+}
+
+.logo-carousel-track img {
+  height: 100px; 
+  width: auto; 
+  margin: 0 40px;  
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.logo-carousel-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* =======================
+   ESTILOS SECCIÓN EVENTOS
+   ======================= */
+
+.eventos-section {
+  padding: 80px 40px;
+  text-align: center;
+}
+.eventos-section .subtitulo-seccion {
+  color: #179ec6;
+}
+
+.eventos-section .titulo-seccion {
+  color: #fff; 
+}
+
+.eventos-section .descripcion-seccion {
+  color: #e0eef8;
+  opacity: 0.9;
+  margin-bottom: 50px;
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.evento-card {
+  background: #102a3a;
+  border-radius: 20px; 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  overflow: hidden;
+  border: 1px solid #185875; 
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.evento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.evento-imagen {
+  width: 100%;
+  height: 270px; 
+  object-fit: cover;
+}
+
+.evento-info {
+  padding: 24px;
+}
+
+.evento-info h3 {
+  font-size: 1.5em;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  color: #fff; 
+}
+
+.evento-fecha {
+  display: flex;
+  align-items: center;
+  color: #e0eef8; 
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.evento-fecha::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f39c12; 
+  margin-right: 10px;
+}
+
+.evento-info .btn-blanco {
+  width: 100%; 
+  box-sizing: border-box; 
+  text-align: center;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 900px) {
+  .eventos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =======================
+   ESTILOS NUEVO FOOTER
+   ======================= */
+
+.site-footer {
+  background: #185875;
+  color: #fff;
+  padding-top: 60px; 
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-column {
+  flex: 1; 
+}
+
+.footer-column.brand {
+  flex-basis: 30%; 
+}
+
+.footer-logo {
+  height: 70px; 
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-size: 0.95em;
+  color: #e0eef8; 
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-column.links h4 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.footer-column.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.footer-column.links ul li a {
+  color: #e0eef8; 
+  text-decoration: none;
+  display: block;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.footer-column.links ul li a:hover {
+  color: #fff;
+}
+
+.footer-column.app h4 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 0;
+}
+
+.footer-column.app p {
+  color: #e0eef8; 
+  margin-bottom: 20px;
+}
+
+.google-play-btn img {
+  width: 180px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.google-play-btn img:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  margin-top: 40px;
+  border-top: 1px solid #36a8c6; 
+}
+
+.copyright {
+  color: #e0eef8; 
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  color: #185875; 
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: all 0.2s ease;
+}
+
+.social-icons a:hover {
+  background: #e0eef8; 
+  transform: scale(1.1);
+}
+
+/* --- Responsividad del Footer --- */
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-column.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-info {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column-reverse; 
+    gap: 20px;
+  }
+}
+
+/* =======================
+   ESTILOS BOTONES CARRUSEL
+   ======================= */
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); 
+  z-index: 10;
+  background: rgba(240, 240, 240, 0.9);
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 2.5em; 
+  line-height: 45px; 
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  background: #fff;
+}
+
+.carousel-btn.prev {
+  left: -25px; 
+}
+
+.carousel-btn.next {
+  right: -25px; 
+}
+
+@media (max-width: 900px) {
+  .carousel-btn {
+    display: none;
+  }
+}
+
+/* =======================
+   ESTILOS EVENTOS DE ALIANZAS
+   (Copia de la sección de Eventos)
+   ======================= */
+
+.alianzas-eventos-section {
+  padding: 80px 40px;
+  text-align: center;
+}
+.alianzas-eventos-section .subtitulo-seccion {
+  color: #179ec6;
+}
+
+.alianzas-eventos-section .titulo-seccion {
+  color: #fff; 
+}
+
+.alianzas-eventos-section .descripcion-seccion {
+  color: #e0eef8;
+  opacity: 0.9;
+  margin-bottom: 50px;
+}
+
+.alianzas-eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.alianza-evento-card {
+  background: #102a3a;
+  border-radius: 20px; 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  overflow: hidden;
+  border: 1px solid #185875; 
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: translateY(30px); 
+  transition: transform 0.6s ease-out;
+}
+
+.alianza-evento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.alianza-evento-imagen {
+  width: 100%;
+  height: 270px; 
+  object-fit: cover; 
+}
+
+.alianza-evento-info {
+  padding: 24px;
+}
+
+.alianza-evento-info h3 {
+  font-size: 1.5em;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  color: #fff; 
+}
+
+.alianza-evento-fecha {
+  display: flex;
+  align-items: center;
+  color: #e0eef8; 
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.alianza-evento-fecha::before {
+  /* Este es el punto de color */
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f39c12; 
+  margin-right: 10px;
+}
+
+.alianza-evento-info .btn-blanco {
+  width: 100%; 
+  box-sizing: border-box; 
+  text-align: center;
+}
+
+/* --- ANIMACIÓN DE ENTRADA (NUEVA VERSIÓN) --- */
+
+.alianza-evento-card.animate-in {
+  transform: translateY(0);
+}
+
+/* --- Responsividad (Igual que Eventos) --- */
+@media (max-width: 900px) {
+  .alianzas-eventos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =======================
+   ESTILOS SECCIÓN CONTADOR
+   ======================= */
+
+.contador-section {
+  /* Usamos el mismo fondo que las otras secciones blancas */
+  background: #f9f9f9;
+  color: #222;
+  display: flex;
+  justify-content: space-evenly; /* Espacio entre los contadores */
+  align-items: center;
+  padding: 50px 40px;
+  text-align: center;
+  /* Una línea sutil para separarlo del hero */
+  border-top: 1px solid #e0e0e0;
+}
+
+.contador-item h2 {
+  font-size: 3em; /* Tamaño grande para el número */
+  font-weight: 700;
+  color: #185875; /* Color principal de tu marca */
+  margin: 0;
+  min-width: 120px; /* Evita que el layout "salte" mientras cuenta */
+}
+
+.contador-item p {
+  font-size: 1.1em;
+  color: #555;
+  margin: 5px 0 0 0;
+}
+
+/* --- Responsividad para el contador --- */
+@media (max-width: 768px) {
+  .contador-section {
+    flex-direction: column; /* Apila los contadores en móvil */
+    gap: 40px; /* Espacio entre ellos */
+    padding: 40px 20px;
+  }
+  
+  .contador-item h2 {
+    font-size: 2.5em;
+  }
+}
