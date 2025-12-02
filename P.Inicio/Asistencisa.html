@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassGo! - Asistencias</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="EstiloAsistencia.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-area">
+                <img src="../P.Inicio/Tugo/tugomaslogo.png" alt="Logo ClassGo!" class="logo-image">
+            </div>
+            <nav class="menu">
+                <a href="#" class="active" id="btn-menu-dashboard">
+                    <i class="fa-solid fa-chevron-right"></i> Asistencia
+                </a>
+                
+                <a href="#" id="btn-menu-historial">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Historial
+                </a>
+            </nav>
+            <div class="logout-area">
+                <button class="btn-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Desconectar</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <i class="fa-solid fa-bars menu-toggle" id="menu-toggle"></i>
+
+            <div id="vista-dashboard">
+                <div class="top-header">
+                    <h3>Asistencias / <span class="light-text">Detalles personales</span></h3>
+                </div>
+
+                <div class="time-banner">
+                    <div class="time-content">
+                        <div class="banner-title"><i class="fa-regular fa-clock"></i> Hora Actual</div>
+                        <div class="digital-clock" id="reloj">--:-- --</div>
+                        <div class="date-display" id="fecha">Cargando fecha...</div>
+                    </div>
+                </div>
+
+                <div class="panels-container">
+                    <div class="card action-card">
+                        <div class="buttons-row">
+                            <button class="big-btn btn-entry" id="btn-marcar-entrada">
+                                <i class="fa-solid fa-door-open"></i> <span>Marcar Entrada</span>
+                            </button>
+                            <button class="big-btn btn-exit" id="btn-marcar-salida">
+                                <i class="fa-solid fa-door-closed"></i> <span>Marcar Salida</span>
+                            </button>
+                        </div>
+                        <div class="stats-row">
+                            <div class="stat-box clickable-stat" id="trigger-entradas">
+                                <span>Entradas Hoy</span>
+                                <strong class="green-text" id="contador-entradas">0</strong>
+                            </div>
+                            <div class="stat-box clickable-stat" id="trigger-salidas">
+                                <span>Salidas Hoy</span>
+                                <strong class="red-text" id="contador-salidas">0</strong>
+                            </div>
+                        </div>
+                        <button class="btn-view-all" id="btn-ir-historial">Ver Asistencias</button>
+                    </div>
+
+                    <div class="right-panel-wrapper">
+                        <div class="card schedule-card" id="vista-tabla">
+                            <table class="schedule-table">
+                                <thead>
+                                    <tr>
+                                        <th></th><th>Entrada</th><th>Salida</th><th>Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-cuerpo">
+                                    <tr data-dia="1"><td class="day-label">Lunes</td><td>-</td><td>-</td><td>-</td></tr>
+                                    <tr data-dia="2"><td class="day-label">Martes</td><td>-</td><td>-</td><td>-</td></tr>
+                                    <tr data-dia="3"><td class="day-label">Miércoles</td><td>-</td><td>-</td><td>-</td></tr>
+                                    <tr data-dia="4"><td class="day-label">Jueves</td><td>-</td><td>-</td><td>-</td></tr>
+                                    <tr data-dia="5"><td class="day-label">Viernes</td><td>-</td><td>-</td><td>-</td></tr>
+                                    <tr data-dia="6"><td class="day-label">Sábado</td><td>-</td><td>-</td><td>-</td></tr>
+                                    <tr data-dia="0"><td class="day-label">Domingo</td><td>-</td><td>-</td><td>-</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card details-card" id="vista-detalles" style="display: none;">
+                            <button class="btn-back" id="btn-regresar-tabla"><i class="fa-solid fa-arrow-left"></i></button>
+                            <div class="details-columns">
+                                <div class="detail-col">
+                                    <h4 class="detail-title title-entrada">Entrada</h4>
+                                    <div class="time-list-container" id="lista-entradas-hoy"></div>
+                                </div>
+                                <div class="detail-col">
+                                    <h4 class="detail-title title-salida">Salida</h4>
+                                    <div class="time-list-container" id="lista-salidas-hoy"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vista-historial" style="display: none;">
+                <div class="top-header">
+                    <h3>historial de Asistencia / <span class="light-text">Detalles personales</span></h3>
+                </div>
+
+                <div class="calendar-layout">
+                    <div class="orange-tab">Meses</div>
+                    
+                    <div class="calendar-card">
+                        <div class="calendar-content">
+                            <div class="calendar-left">
+                                <div class="calendar-controls">
+                                    <button id="prev-month"><i class="fa-solid fa-chevron-left"></i></button>
+                                    <h3 id="calendar-month-year">Noviembre</h3>
+                                    <button id="next-month"><i class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                                <div class="days-header">
+                                    <span>Lun</span><span>Mar</span><span>Mie</span><span>Jue</span>
+                                    <span>Vie</span><span>Sab</span><span>Dom</span>
+                                </div>
+                                <div class="days-grid" id="days-grid">
+                                    </div>
+                            </div>
+
+                            <div class="vertical-divider"></div>
+
+                            <div class="calendar-right">
+                                <div class="info-box">
+                                    <div class="info-header">
+                                        <span class="green-label">Entrada</span>
+                                        <span class="red-label">Salida</span>
+                                    </div>
+                                    <div class="info-body">
+                                        <div class="info-time" id="historial-entrada">--:-- --</div>
+                                        <div class="info-time" id="historial-salida">--:-- --</div>
+                                    </div>
+                                    <div id="historial-mensaje" class="no-data-msg">Selecciona un día</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-action">
+                        <button class="btn-main-action" id="btn-volver-dashboard">Marcar Asistencia</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="LogicaAsistencia.js"></script>
+</body>
+</html>

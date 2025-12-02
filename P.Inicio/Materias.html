@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Materias</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f6f6f6;
+    }
+
+    h2, h3 {
+        margin-bottom: 10px;
+    }
+
+    input {
+        padding: 8px;
+        width: 250px;
+    }
+
+    button {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    /* Tarjetas de categorías guardadas */
+    .categoria {
+        background: white;
+        border: 1px solid #ccc;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+
+    .cat-header {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .materia-item {
+        background: #f0f0f0;
+        padding: 8px 12px;
+        margin-top: 6px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 6px;
+    }
+
+    /* Modal */
+    .modal-bg {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal {
+        background: white;
+        width: 450px;
+        max-height: 90%;
+        overflow-y: auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .modal-category {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .modal-category h4 {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .modal-materia {
+        background: #efefef;
+        padding: 8px 10px;
+        margin-top: 5px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+
+<h2>Mis Materias</h2>
+
+<div style="display:flex; gap:10px;">
+    <input type="text" placeholder="Buscar tu materia">
+    <button onclick="openModal()">Ver todas las materias</button>
+</div>
+
+<h3 style="margin-top:30px;">Tus Materias</h3>
+<p id="noMaterias" style="color:gray;">No tienes materias</p>
+
+<div id="materiasContainer"></div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBG">
+    <div class="modal">
+        <h3>Escoge tus materias</h3>
+
+        <div id="modalCategories"></div>
+
+        <button onclick="closeModal()" 
+            style="margin-top:10px; background:black; color:white; border:none; border-radius:6px;">
+            Cerrar
+        </button>
+    </div>
+</div>
+
+<script>
+    // Categorías base
+    const categories = [
+        { nombre: "Primaria", materias: ["Ciencia Naturales", "Ciencia Sociales", "Matemática", "Lenguaje"] },
+        { nombre: "Secundaria", materias: ["Álgebra", "Física", "Química", "Historia"] },
+        { nombre: "Idiomas", materias: ["Inglés", "Italiano", "Francés"] }
+    ];
+
+    // Materias seleccionadas
+    const userSubjects = {}; 
+    // Ejemplo estructura final:
+    // { "Primaria": ["Matemática", "Lenguaje"] }
+
+    // Abre modal
+    function openModal() {
+        document.getElementById("modalBG").style.display = "flex";
+        loadModalCategories();
+    }
+
+    // Cierra modal
+    function closeModal() {
+        document.getElementById("modalBG").style.display = "none";
+    }
+
+    // Cargar categorías dentro del modal
+    function loadModalCategories() {
+        const container = document.getElementById("modalCategories");
+        container.innerHTML = "";
+
+        categories.forEach((cat, index) => {
+            const div = document.createElement("div");
+            div.className = "modal-category";
+
+            div.innerHTML = `
+                <h4 onclick="toggleModalCat(${index})">
+                    ${cat.nombre}
+                    <span id="arrow${index}">▼</span>
+                </h4>
+                <div id="modalCat${index}" style="display:none;"></div>
+            `;
+
+            container.appendChild(div);
+        });
+    }
+
+    function toggleModalCat(i) {
+        const box = document.getElementById(modalCat${i});
+        const arrow = document.getElementById(arrow${i});
+        const cat = categories[i];
+
+        if (box.style.display === "none") {
+            box.style.display = "block";
+            arrow.innerHTML = "▲";
+            box.innerHTML = "";
+
+            cat.materias.forEach(m => {
+                const mDiv = document.createElement("div");
+                mDiv.className = "modal-materia";
+
+                mDiv.innerHTML = `
+                    ${m}
+                    <button onclick="addMateria('${cat.nombre}','${m}')">Agregar</button>
+                `;
+
+                box.appendChild(mDiv);
+            });
+
+        } else {
+            box.style.display = "none";
+            arrow.innerHTML = "▼";
+        }
+    }
+
+    // Agregar materia seleccionada
+    function addMateria(categoria, materia) {
+        if (!userSubjects[categoria]) userSubjects[categoria] = [];
+
+        if (!userSubjects[categoria].includes(materia)) {
+            userSubjects[categoria].push(materia);
+        }
+
+        renderMaterias();
+    }
+
+    // Eliminar materia
+    function removeMateria(categoria, materia) {
+        userSubjects[categoria] = userSubjects[categoria].filter(m => m !== materia);
+
+        if (userSubjects[categoria].length === 0) {
+            delete userSubjects[categoria];
+        }
+
+        renderMaterias();
+    }
+
+    // Render de la sección "Tus materias"
+    function renderMaterias() {
+        const container = document.getElementById("materiasContainer");
+        const noMaterias = document.getElementById("noMaterias");
+
+        container.innerHTML = "";
+
+        const categorias = Object.keys(userSubjects);
+
+        if (categorias.length === 0) {
+            noMaterias.style.display = "block";
+            return;
+        }
+
+        noMaterias.style.display = "none";
+
+        categorias.forEach(cat => {
+            const div = document.createElement("div");
+            div.className = "categoria";
+
+            div.innerHTML = `
+                <div class="cat-header" onclick="toggleCat(this)">
+                    ${cat}
+                    <span>▼</span>
+                </div>
+                <div class="cat-body" style="display:none;">
+                </div>
+            `;
+
+            const body = div.querySelector(".cat-body");
+
+            userSubjects[cat].forEach(materia => {
+                const item = document.createElement("div");
+                item.className = "materia-item";
+                item.innerHTML = `
+                    ${materia}
+                    <button onclick="removeMateria('${cat}','${materia}')">🗑</button>
+                `;
+                body.appendChild(item);
+            });
+
+            container.appendChild(div);
+        });
+    }
+
+    function toggleCat(header) {
+        const body = header.nextElementSibling;
+        const arrow = header.querySelector("span");
+
+        if (body.style.display === "none") {
+            body.style.display = "block";
+            arrow.innerHTML = "▲";
+        } else {
+            body.style.display = "none";
+            arrow.innerHTML = "▼";
+        }
+    }
+</script>
+
+</body>
+</html>

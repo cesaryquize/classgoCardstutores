@@ -1399,3 +1399,212 @@ body {
     font-size: 2.5em;
   }
 }
+
+/* SECCION DE ENCUESTA */
+  :root{
+    --teal:#185875;        /* fondo principal */
+    --accent:#46c7e0;      /* barras decorativas */
+    --btn:#ff6a2b;         /* naranja botón */
+    --white: #ffffff;
+    --card-width: 780px;   /* ancho aproximado del diseño */
+  }
+
+  .survey-section{
+    width: 100%;
+    padding: 60px 0px;
+    background: var(--teal); 
+  }
+
+  .survey-card{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: transparent;
+    color: var(--white);
+    padding: 0;
+    box-shadow: none;
+    text-align: center;
+    border-radius: 0;
+  }
+
+  .survey-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 14px;
+  }
+
+  .survey-top .bar{
+    display: inline-block;
+    width: 80px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 6px;
+  }
+
+  .survey-top .top-text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .survey-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.35;
+    margin: 20px auto 40px;
+    max-width: 900px;
+    letter-spacing: -0.2px;
+  }
+
+  /* Mascota centrada */
+  .mascot-wrap{
+    display:flex;
+    justify-content:center;
+    margin-bottom: 50px;
+  }
+  .mascot{
+    max-width: 240px; /* ajusta para que tenga tamaño similar al diseño */
+    width: 240px;
+    min-width: 110px;
+    height: auto;
+    transform: translateY(0);
+    image-rendering: optimizeQuality;
+  }
+
+  /* Botón naranja */
+  .survey-btn{
+    display: inline-block;
+    text-decoration: none;
+    background: var(--btn);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 20px 70px;       /* Más grande */
+    border-radius: 40px;
+    font-size: 22px;          /* Más grande */
+    box-shadow: 0 8px 0 rgba(0,0,0,0.15);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .survey-btn:active{ transform: translateY(2px); box-shadow: 0 3px 0 rgba(0,0,0,0.12); }
+  .survey-btn:hover{ transform: translateY(-2px); }
+
+  /* Responsive */
+  @media (max-width:520px){
+    .survey-title{ font-size:18px; }
+    .mascot{ max-width:120px; }
+    .survey-btn{ padding: 12px 36px; font-size:15px; }
+    .survey-top .bar{ width:44px; height:5px; }
+  }
+  /* =======================
+   ESTILOS MODAL ENCUESTA (ACTUALIZADO)
+   ======================= */
+
+/* Estructura Base (Igual que antes) */
+.survey-modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(24, 88, 117, 0.9);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; opacity: 0; visibility: hidden;
+  transition: opacity 0.3s;
+}
+.survey-modal-overlay.active { opacity: 1; visibility: visible; }
+
+.survey-modal-card {
+  color: #333 !important;
+  background: #fff; width: 90%; max-width: 700px;
+  border-radius: 20px; padding: 30px 40px;
+  position: relative; overflow: hidden;
+  min-height: 400px; /* Altura mínima para evitar saltos */
+  display: flex; flex-direction: column;
+}
+
+/* Header navegación */
+.survey-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; z-index: 2; position: relative; }
+.back-arrow { font-size: 24px; cursor: pointer; color: #000; font-weight: bold; }
+.page-count { color: #ff6a2b; font-weight: 800; font-size: 1.2em; }
+
+/* Pasos */
+.survey-step { display: none; flex: 1; flex-direction: column; z-index: 2; position: relative; }
+.survey-step.active { display: flex; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Marca de Agua */
+.watermark-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; opacity: 0.12; pointer-events: none; }
+.tugo-watermark { width: 320px; }
+
+/* Preguntas */
+.survey-question {
+  font-size: 1.4em; font-weight: 700; color: #185875;
+  margin: 10px 0 30px 0; text-align: center; line-height: 1.3;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.mini-icon { width: 45px; height: 45px; }
+
+/* --- PASO 1: SI/NO --- */
+.centered-options { display: flex; justify-content: center; gap: 80px; margin-top: 20px; }
+.radio-label { display: flex; align-items: center; gap: 10px; font-size: 1.3em; font-weight: bold; cursor: pointer; }
+.radio-label input { display: none; }
+.custom-radio { width: 24px; height: 24px; border: 2px solid #333; border-radius: 50%; display: inline-block; background: #fff; transition: all 0.2s; }
+.radio-label input:checked + .custom-radio { background: #185875; border-color: #185875; box-shadow: inset 0 0 0 4px #fff; } /* Punto blanco dentro */
+
+/* --- PASO 2: RATING GRID --- */
+.rating-grid {
+  display: flex; justify-content: space-around; width: 100%; margin-top: 10px;
+}
+.rating-col { text-align: center; }
+.rating-label { display: block; font-weight: 700; margin-bottom: 15px; font-size: 0.95em; color: #000; }
+.rating-row { margin-bottom: 12px; display: flex; justify-content: center; }
+.rating-row label { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.1em; cursor: pointer; }
+.custom-radio.small { width: 20px; height: 20px; border-width: 1.5px; }
+
+/* --- PASO 3: INPUT TEXTO --- */
+.input-wrapper { position: relative; max-width: 500px; margin: 20px auto; width: 100%; }
+.survey-text-input {
+  width: 100%; padding: 15px 90px 15px 20px; /* Padding derecho grande para el botón */
+  border-radius: 30px; border: 1px solid #ccc; font-size: 1em; outline: none; box-sizing: border-box;
+}
+.fake-send-btn {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  background: #ddd; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; color: #333; cursor: pointer;
+}
+
+/* Footer Botones */
+.survey-footer { margin-top: auto; display: flex; justify-content: flex-end; padding-top: 20px; }
+.btn-next { background: none; border: none; font-size: 1.1em; font-weight: 800; color: #000; cursor: pointer; }
+
+/* =======================
+   ESTILOS PANTALLA FINAL
+   ======================= */
+.survey-step.final-screen {
+  text-align: center; align-items: center; justify-content: center;
+  padding-top: 10px;
+}
+.close-x {
+  position: absolute; top: -15px; right: -15px; background: none; border: none;
+  font-size: 1.5em; font-weight: 900; cursor: pointer; color: #000;
+}
+.final-title { color: #2ecc71; font-size: 1.6em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.final-desc { font-size: 0.95em; color: #555; max-width: 500px; margin: 0 auto 20px; line-height: 1.4; }
+.tugo-final { width: 120px; height: auto; margin-bottom: 20px; }
+
+.final-input-group input {
+  background: #e0e0e0; border: none; border-radius: 8px;
+  padding: 12px 20px; width: 100%; max-width: 350px; text-align: center; font-size: 1em; color: #555; font-weight: 600;
+}
+.btn-blue-final {
+  background: #185875; color: #fff; border: none;
+  padding: 12px 40px; border-radius: 8px; font-size: 1.1em; font-weight: 700;
+  margin-top: 20px; cursor: pointer; transition: background 0.2s;
+}
+.btn-blue-final:hover { background: #114258; }
+
+/* Responsive Grid */
+@media (max-width: 600px) {
+  .rating-grid { flex-direction: column; gap: 20px; }
+  .rating-row { justify-content: flex-start; padding-left: 30%; }
+}

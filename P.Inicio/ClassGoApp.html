@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ClassGo Estilo Nuevo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400,600,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="EInicio.css" />
 </head>
@@ -331,6 +332,133 @@
   </div>
 </section>
 
+<section class="survey-section">
+  <div class="survey-card">
+    <div class="survey-top">
+      <span class="bar"></span>
+      <span class="top-text">Realiza nuestra encuesta<br>para seguir mejorando</span>
+      <span class="bar"></span>
+    </div>
+
+    <h2 class="survey-title">
+      Completa nuestra encuesta para ganar
+      <br>
+      un cupon de descuento para tu siguiente tutoria
+    </h2>
+
+    <div class="mascot-wrap">
+      <!-- Reemplaza el src por la ruta de tu imagen (ej: ../Tugo/tugo.png o /assets/mascota.png) -->
+      <img src="../P.Inicio/Tugo/tugo movimiento.gif" alt="Mascota" class="mascot">
+    </div>
+
+    <a class="survey-btn" href="#encuesta">Comenzar ahora!</a>
+
+    <div id="survey-modal" class="survey-modal-overlay">
+  <div class="survey-modal-card">
+    
+    <div class="survey-header" id="survey-header-nav">
+      <span class="back-arrow" id="btn-back">
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+      <span class="page-count" id="page-count">1/3</span>
+    </div>
+
+    <div class="watermark-container" id="survey-watermark">
+      <img src="../Tugo/tugo movimiento.gif" alt="Watermark" class="tugo-watermark">
+    </div>
+
+    <div class="survey-step active" id="step-1">
+      <h3 class="survey-question">
+        <img src="../Tugo/Tugo perfil.png" class="mini-icon" alt="icon"> 
+        1.- ¿Encontraste fácilmente la materia que estabas buscando?
+      </h3>
+      <div class="survey-options centered-options">
+        <label class="radio-label">
+          Si 
+        </label>
+        <label class="radio-label">
+          No <input type="radio" name="q1" value="no"><span class="custom-radio"></span>
+        </label>
+      </div>
+      <div class="survey-footer">
+        <button class="btn-next" onclick="nextStep(2)">Siguiente ➜</button>
+      </div>
+    </div>
+
+    <div class="survey-step" id="step-2">
+      <h3 class="survey-question">
+        <img src="../Tugo/Tugo perfil.png" class="mini-icon" alt="icon"> 
+        2.- ¿Qué tan probable es que recomiendes nuestro sitio web a un amigo o colega?
+        <br><span style="font-size: 0.8em; font-weight:500;">De una escala del 1 al 10</span>
+      </h3>
+
+      <div class="rating-grid">
+        <div class="rating-col">
+          <span class="rating-label">(recomendada)</span>
+          <div class="rating-row"><label class="radio-label">10 <input type="radio" name="q2" value="10"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">9 <input type="radio" name="q2" value="9"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">8 <input type="radio" name="q2" value="8"><span class="custom-radio"></span></label></div>
+        </div>
+        <div class="rating-col">
+          <span class="rating-label">(probablemente)</span>
+          <div class="rating-row"><label class="radio-label">7 <input type="radio" name="q2" value="7"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">6 <input type="radio" name="q2" value="6"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">5 <input type="radio" name="q2" value="5"><span class="custom-radio"></span></label></div>
+        </div>
+        <div class="rating-col">
+          <span class="rating-label">(No recomendable)</span>
+          <div class="rating-row"><label class="radio-label">4 <input type="radio" name="q2" value="4"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">3 <input type="radio" name="q2" value="3"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">2 <input type="radio" name="q2" value="2"><span class="custom-radio"></span></label></div>
+          <div class="rating-row"><label class="radio-label">1 <input type="radio" name="q2" value="1"><span class="custom-radio"></span></label></div>
+        </div>
+      </div>
+
+      <div class="survey-footer">
+        <button class="btn-next" onclick="nextStep(3)">Siguiente ➜</button>
+      </div>
+    </div>
+
+    <div class="survey-step" id="step-3">
+      <h3 class="survey-question">
+        <img src="../Tugo/Tugo perfil.png" class="mini-icon" alt="icon"> 
+        3.- ¿Tienes algún comentario o sugerencia para seguir mejorando?
+      </h3>
+
+      <div class="input-wrapper">
+        <input type="text" placeholder="Escribe tu comentario aquí..." class="survey-text-input">
+        <button class="fake-send-btn">Enviar</button>
+      </div>
+
+      <div class="survey-footer">
+        <button class="btn-next" onclick="nextStep('final')">Finalizar ➜</button>
+      </div>
+    </div>
+
+    <div class="survey-step final-screen" id="step-final">
+      <button class="close-x" id="close-final-x">X</button>
+      
+      <h2 class="final-title">
+        <i class="fa-regular fa-circle-check"></i> ¡Gracias por ayudarnos a mejorar!
+      </h2>
+      
+      <p class="final-desc">
+        Tu opinión es muy valiosa para nosotros. Como agradecimiento, te regalaremos un cupón de descuento, ingresa tu número de teléfono o correo electrónico:
+      </p>
+
+      <img src="../P.Inicio/Tugo/tugopulgararriba.png" alt="Tugo OK" class="tugo-final"> 
+      <div class="final-input-group">
+        <input type="text" placeholder="Ej: 12345678 o example@gmail.com">
+      </div>
+
+      <button class="btn-blue-final" id="btn-finish-all">Enviar</button>
+    </div>
+
+  </div>
+</div>
+  </div>
+</section>
+
 <section class="alianzas-section">
   <span class="subtitulo-seccion">Nuestras Alianzas</span>
   <h2 class="titulo-seccion">Alianzas que potencian la educación</h2>
@@ -352,8 +480,6 @@
     </div>
   </div>
 </section>
-
-
 <footer class="site-footer">
   <div class="footer-main">
     <div class="footer-column brand">

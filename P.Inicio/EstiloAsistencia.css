@@ -1,0 +1,740 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow: hidden; /* Para evitar scroll en toda la página */
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR (Barra Lateral) */
+.sidebar {
+    width: 260px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.logo-area {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    padding: 10px 0;
+}
+
+.logo-image {
+    max-width: 100%; 
+    height: auto;
+    max-height: 100px;
+    display: block; 
+    margin: 0 auto;
+}
+
+.menu {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.menu a {
+    text-decoration: none;
+    color: #666;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu a.active {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.logout-area {
+    margin-top: 0; /* Se ajusta solo debajo del menú */
+}
+
+.btn-logout {
+    background-color: #ffe5e5;
+    color: #ff6b6b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.top-header h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.top-header .light-text {
+    color: #17a2b8;
+    font-weight: bold;
+}
+
+/* BANNER DE HORA */
+.time-banner {
+    background-color: #2499b7; /* Color azul turquesa del banner */
+    border-radius: 15px;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(36, 153, 183, 0.3);
+}
+
+.banner-title {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.digital-clock {
+    font-size: 60px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.date-display {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* PANELES INFERIORES */
+.panels-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* El panel derecho es más ancho */
+    gap: 20px;
+    height: 100%;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Panel Izquierdo - CORREGIDO PARA ALINEACIÓN */
+.action-card {
+    display: flex;
+    flex-direction: column;
+    height: 375px; 
+    padding: 30px;
+    justify-content: center;
+}
+
+.buttons-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.big-btn {
+    flex: 1;
+    border: none;
+    border-radius: 15px; /* Bordes más redondeados */
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 110px; /* Altura fija para consistencia visual */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 2px solid transparent;
+}
+
+.big-btn i {
+    font-size: 28px; /* Icono ligeramente más pequeño */
+    margin-bottom: 5px;
+}
+
+.big-btn:hover {
+    transform: translateY(-3px); /* Efecto de elevación sutil */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.btn-entry {
+    background-color: #66ff99; /* Verde neón */
+}
+.btn-entry i { color: #000; }
+
+.btn-exit {
+    background-color: #ff6b6b; /* Rojo suave */
+}
+.btn-exit i { color: #000; }
+
+.stats-row {
+    display: flex;
+    gap: 20px; /* Misma separación que los botones */
+    margin-top: 10px; /* Menor margen que el original */
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.stat-box {
+    flex: 1;
+    background-color: #e4e4e4; /* Gris más claro para igualar la foto */
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #555;
+    height: 90px; /* Altura fija */
+}
+
+.stat-box strong {
+    font-size: 28px;
+}
+
+.green-text { color: #2ecc71; }
+.red-text { color: #e74c3c; }
+
+.btn-view-all {
+    margin-top: 15px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(23, 162, 184, 0.2);
+    transition: background-color 0.3s;
+}
+.btn-view-all:hover {
+    background-color: #138496;
+}
+
+/* Panel Derecho (Tabla) */
+.schedule-card {
+    position: relative;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th {
+    text-align: left;
+    padding-bottom: 10px;
+    color: #e74c3c; /* Títulos en rojo/naranja */
+    font-size: 14px;
+}
+
+.schedule-table th:nth-child(2) { color: #2ecc71; } /* Entrada en verde */
+.schedule-table th:last-child { color: #333; } /* Fecha en negro */
+
+.schedule-table td {
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.schedule-table .day-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.line-placeholder {
+    border: 0;
+    height: 2px;
+    background: #333;
+    width: 100%;
+}
+
+.scroll-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 6px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+/* --- ESTILOS NUEVOS PARA LA FUNCIONALIDAD --- */
+
+/* Hacemos que las cajas de estadísticas parezcan clickeables */
+.clickable-stat {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.clickable-stat:hover {
+    background-color: #d0d0d0;
+}
+
+/* Estilos para la nueva tarjeta de detalles */
+.details-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    align-self: flex-start; /* A la izquierda */
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.details-columns {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+}
+
+.detail-col {
+    flex: 1; /* Toman el 50% cada una */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 80%;
+}
+
+.title-entrada {
+    border-bottom: 3px solid #2ecc71; /* Subrayado verde */
+    color: #2ecc71;
+}
+
+.title-salida {
+    border-bottom: 3px solid #e74c3c; /* Subrayado rojo */
+    color: #e74c3c;
+}
+
+.time-list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    overflow-y: auto; /* Si hay muchas horas, hace scroll */
+    max-height: 300px; 
+}
+
+/* El estilo de las cajitas de hora */
+.time-item {
+    background-color: #dcdcdc; /* Gris similar a la imagen */
+    color: #555;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 25px 0; /* Alto considerable como en la imagen */
+    width: 80%; /* Ancho similar a los títulos */
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* === NUEVOS ESTILOS PARA EL HISTORIAL (CALENDARIO) === */
+
+.calendar-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 10px;
+}
+
+/* Pestaña Naranja */
+.orange-tab {
+    background-color: #f4a261; /* Color naranja suave */
+    color: black;
+    font-weight: bold;
+    padding: 10px 30px;
+    width: fit-content;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: -5px; /* Para que pegue con la tarjeta */
+    z-index: 1;
+}
+
+.calendar-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-content {
+    display: flex;
+    height: 100%;
+}
+
+/* Lado Izquierdo: Calendario Grid */
+.calendar-left {
+    flex: 2;
+    padding-right: 20px;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.calendar-controls button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+}
+
+.day-circle {
+    aspect-ratio: 1; /* Mantiene forma cuadrada/circular */
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.day-circle:hover {
+    background-color: #ccc;
+}
+
+/* Día seleccionado */
+.day-circle.selected {
+    background-color: #17a2b8; /* Azul del tema */
+    color: white;
+}
+
+/* Días de otros meses (gris oscuro) */
+.day-circle.other-month {
+    background-color: #888;
+    color: #444;
+    cursor: default;
+}
+
+/* Separador */
+.vertical-divider {
+    width: 2px;
+    background-color: #000;
+    margin: 0 30px;
+}
+
+/* Lado Derecho: Info */
+.calendar-right {
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-box {
+    background-color: #fff; /* Fondo blanco */
+    border: 8px solid #e0e0e0; /* Marco grueso gris */
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    min-height: 250px;
+    text-align: center;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.green-label { color: #2ecc71; }
+.red-label { color: #e74c3c; }
+
+.info-body {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    font-weight: bold;
+    color: #777;
+    margin-top: 40px;
+}
+
+.no-data-msg {
+    margin-top: 50px;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Footer botón */
+.footer-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-main-action {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-main-action:hover {
+    background-color: #138496;
+}
+
+/* Botón de hamburguesa, oculto por defecto en escritorio */
+.menu-toggle {
+    display: none; 
+}
+
+
+/* ======================================= */
+/* === RESPONSIVE DESIGN (Media Queries) === */
+/* ======================================= */
+
+@media (max-width: 900px) {
+    /* --- 1. Contenedor Principal y Body --- */
+    body {
+        overflow-x: hidden; /* Evita el scroll horizontal al ocultar el sidebar */
+    }
+    
+    .dashboard-container {
+        flex-direction: column; /* Apila sidebar y main-content */
+    }
+
+    /* --- 2. Sidebar (Menú Lateral) --- */
+    .sidebar {
+        width: 260px;
+        position: fixed; /* Lo fija para que no se desplace */
+        top: 0;
+        left: -260px; /* Inicialmente fuera de la pantalla */
+        height: 100%;
+        z-index: 1000;
+        transition: left 0.3s ease; /* Animación de entrada/salida */
+        padding-top: 80px; /* Espacio para el top-header que ahora será fijo */
+    }
+
+    .sidebar.open {
+        left: 0; /* Muestra el sidebar cuando tiene la clase 'open' */
+    }
+
+    /* --- 3. Main Content y Header --- */
+    .main-content {
+        margin-left: 0; /* Elimina el margen lateral del escritorio */
+        padding: 15px; /* Reduce el padding general */
+        padding-top: 70px; /* Añade padding para que no se superponga con el top-header fijo */
+        overflow-y: auto; /* Permite scroll en el contenido principal */
+        height: 100vh;
+    }
+
+    .top-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4; /* Fondo del body */
+        padding: 15px 15px 15px 70px; /* Ajusta padding para el toggle */
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+    }
+
+    /* --- 4. Toggle del Menú (Botón de Hamburguesa) --- */
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa en móvil */
+        position: fixed; /* Lo fija para que esté siempre visible */
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1001;
+        color: #17a2b8; /* Color del tema */
+        padding: 10px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* --- 5. BANNER DE HORA --- */
+    .time-banner {
+        padding: 20px;
+        margin-top: 10px; /* Separación después del top-header */
+    }
+    .digital-clock {
+        font-size: 40px;
+    }
+    .banner-title {
+        font-size: 20px;
+    }
+    .date-display {
+        font-size: 16px;
+    }
+
+    /* --- 6. PANELES INFERIORES --- */
+    .panels-container {
+        grid-template-columns: 1fr; /* Columna única */
+        gap: 20px;
+    }
+    
+    .action-card {
+        height: auto; /* Altura automática */
+    }
+    
+    .buttons-row {
+        flex-direction: column; /* Apila botones */
+    }
+
+    .big-btn {
+        height: 80px;
+    }
+
+    .stats-row {
+        flex-direction: column; /* Apila estadísticas */
+    }
+    
+    .stat-box {
+        height: auto;
+        padding: 10px;
+    }
+    
+    .schedule-table td {
+        padding: 8px 5px; /* Reduce padding de tabla */
+        font-size: 12px;
+    }
+    
+    .details-columns {
+        flex-direction: column; /* Apila las columnas de detalles */
+        gap: 20px;
+    }
+    
+    .detail-col {
+        width: 100%;
+    }
+    
+    /* --- 7. VISTA HISTORIAL (CALENDARIO) --- */
+    
+    .calendar-content {
+        flex-direction: column; /* Apila calendario y caja de info */
+    }
+
+    .calendar-left {
+        flex: auto;
+        padding-right: 0;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .vertical-divider {
+        display: none; /* Oculta el divisor vertical en móvil */
+    }
+
+    .calendar-right {
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .info-box {
+        min-height: 200px;
+        padding: 15px;
+        border-width: 5px;
+    }
+    
+    .info-header {
+        font-size: 16px;
+    }
+
+    .info-time {
+        font-size: 14px;
+    }
+
+    .days-grid {
+        gap: 10px;
+    }
+
+    .footer-action {
+        margin-bottom: 30px; /* Evitar que el botón quede pegado al final */
+    }
+}

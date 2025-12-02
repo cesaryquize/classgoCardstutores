@@ -292,6 +292,90 @@ function setupScrollAnimation() {
     observer.observe(card);
   });
 }
+// --- Lógica del Modal de Encuesta Multi-Paso ---
+function setupSurveyModal() {
+  const btnStart = document.querySelector('.survey-btn'); // Botón naranja del home
+  const modal = document.getElementById('survey-modal');
+  const btnBack = document.getElementById('btn-back');
+  const btnCloseFinal = document.getElementById('close-final-x'); // La X del final
+  const btnFinish = document.getElementById('btn-finish-all'); // Botón Enviar final
+
+  if (!btnStart || !modal) return;
+
+  // Variables de estado
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  // Función para abrir modal
+  btnStart.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+    goToStep(1); // Siempre empezar en el 1
+  });
+
+  // Función para cerrar modal completamente
+  const closeModal = () => {
+    modal.classList.remove('active');
+    setTimeout(() => goToStep(1), 300); // Resetear al cerrar
+  };
+
+  // Listeners para cerrar
+  if (btnCloseFinal) btnCloseFinal.addEventListener('click', closeModal);
+  
+  // Cerrar al dar clic fuera
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Botón "Atrás"
+  if (btnBack) {
+    btnBack.addEventListener('click', () => {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      } else {
+        closeModal(); // Si está en el 1, cierra
+      }
+    });
+  }
+
+  // Botón final "Enviar"
+  if (btnFinish) {
+    btnFinish.addEventListener('click', () => {
+      alert("¡Gracias! Tu cupón ha sido enviado.");
+      closeModal();
+    });
+  }
+
+  // --- FUNCIÓN GLOBAL PARA CAMBIAR PASOS ---
+  // La hacemos global (window) para poder llamarla desde el HTML onclick="nextStep(2)"
+  window.nextStep = function(stepNumber) {
+    goToStep(stepNumber);
+  }
+
+  function goToStep(step) {
+    // 1. Ocultar todos los pasos
+    document.querySelectorAll('.survey-step').forEach(el => el.classList.remove('active'));
+    
+    // 2. Manejar caso "final"
+    if (step === 'final') {
+      document.getElementById('step-final').classList.add('active');
+      // Ocultar header (flecha y contador) y marca de agua en la pantalla final
+      document.getElementById('survey-header-nav').style.display = 'none';
+      document.getElementById('survey-watermark').style.display = 'none';
+    } else {
+      // 3. Mostrar paso numérico
+      document.getElementById('step-' + step).classList.add('active');
+      currentStep = step;
+      
+      // Actualizar contador "1/3", "2/3"
+      document.getElementById('page-count').textContent = `${step}/${totalSteps}`;
+      
+      // Asegurar que se vean header y watermark
+      document.getElementById('survey-header-nav').style.display = 'flex';
+      document.getElementById('survey-watermark').style.display = 'block';
+    }
+  }
+}
 
 // --- Event Listener Principal ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -300,5 +384,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCtaCarousel(); 
   setupLogoCarousel();
   setupContadores();
-  setupScrollAnimation(); 
+  setupScrollAnimation();
+  setupSurveyModal(); 
 });
